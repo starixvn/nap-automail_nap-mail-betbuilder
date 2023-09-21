@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="CsvHelper" Version="30.0.1" />
-    <PackageReference Include="EPPlus" Version="6.2.7" />
+    <PackageReference Include="EPPlus" Version="6.2.9" />
     <PackageReference Include="Fanex.Common" Version="1.1.1" />
     <PackageReference Include="Fanex.Data" Version="4.2.2" />
     <PackageReference Include="Fanex.Data.Repository" Version="4.2.2" />
@@ -19,7 +19,7 @@
     <PackageReference Include="Fanex.MailStation" Version="2.1.0" />
     <PackageReference Include="Fanex.RemotingRef" Version="1.5.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="ONEbook.UM" Version="3.1.4" />
+    <PackageReference Include="ONEbook.UM" Version="3.1.6" />
     <PackageReference Include="ONEbook.UM.AspNetCore" Version="3.1.0" />
     <PackageReference Include="ONEbook.UM.Transport" Version="3.1.2" />
     <PackageReference Include="RazorEngine.NetCore" Version="3.1.0" />

@@ -7,6 +7,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.BetBuilder.Service", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fanex.BetBuilder.Business", "Fanex.BetBuilder.Service\Fanex.BetBuilder.Business\Fanex.BetBuilder.Business.csproj", "{6E96E361-E4F4-4C1D-BD1C-33A88A1EE31A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0A8CE7E7-CCCD-41D6-859B-5D336E4150B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math", "tests\Math\Math.csproj", "{EB1897BE-6FC5-42CB-9BAA-A5B8B979EE5D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Math.UnitTests", "tests\Math.UnitTests\Math.UnitTests.csproj", "{50A1445F-FED7-421D-910B-649DBC96D91B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,9 +27,21 @@ Global
 		{6E96E361-E4F4-4C1D-BD1C-33A88A1EE31A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E96E361-E4F4-4C1D-BD1C-33A88A1EE31A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E96E361-E4F4-4C1D-BD1C-33A88A1EE31A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB1897BE-6FC5-42CB-9BAA-A5B8B979EE5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB1897BE-6FC5-42CB-9BAA-A5B8B979EE5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB1897BE-6FC5-42CB-9BAA-A5B8B979EE5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB1897BE-6FC5-42CB-9BAA-A5B8B979EE5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50A1445F-FED7-421D-910B-649DBC96D91B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50A1445F-FED7-421D-910B-649DBC96D91B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50A1445F-FED7-421D-910B-649DBC96D91B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50A1445F-FED7-421D-910B-649DBC96D91B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{EB1897BE-6FC5-42CB-9BAA-A5B8B979EE5D} = {0A8CE7E7-CCCD-41D6-859B-5D336E4150B9}
+		{50A1445F-FED7-421D-910B-649DBC96D91B} = {0A8CE7E7-CCCD-41D6-859B-5D336E4150B9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9C3C03FE-0095-4BBB-9B79-5338AF6BEE13}

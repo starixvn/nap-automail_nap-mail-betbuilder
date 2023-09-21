@@ -6,7 +6,7 @@ COPY ./Fanex.BetBuilder.Service/Fanex.BetBuilder.Service/Fanex.BetBuilder.Servic
 
 RUN ls /src -l
 WORKDIR /src/Fanex.BetBuilder.Service
-RUN dotnet nuget add source http://nuget.nexdev.net/api/v2
+RUN dotnet nuget add source https://nuget.nexdev.net/api/v2
 RUN dotnet restore -v n
 
 COPY ./Fanex.BetBuilder.Service/Fanex.BetBuilder.Service .
