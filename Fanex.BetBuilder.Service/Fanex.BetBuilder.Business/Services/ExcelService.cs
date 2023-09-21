@@ -38,7 +38,7 @@ public class ExcelServiceImp : ExcelService
         monthlySheet.Cells["B2"].Value = title;
     }
 
-    private void RenderData(ExcelWorksheet monthlySheet, List<MonthlyDataModel> data)
+    private static void RenderData(ExcelWorksheet monthlySheet, List<MonthlyDataModel> data)
     {
         const int RowIndex = 4;
         const int ColumnIndex = 1;
