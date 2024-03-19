@@ -7,7 +7,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <None Remove="App_Data\DBRPT.bodb_Report.bodbAdminNet.xml" />
+	  <None Remove="App_Data\DBRPT.bodb_Report.wsv_nap.xml" />
 	  <None Remove="Templates\MonthlyBetBuilderTemplate.xlsx" />
 	</ItemGroup>
 
@@ -42,7 +42,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="App_Data\DBRPT.bodb_Report.bodbAdminNet.xml">
+    <Content Include="App_Data\DBRPT.bodb_Report.wsv_nap.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="Properties\launchSettings.json" />
