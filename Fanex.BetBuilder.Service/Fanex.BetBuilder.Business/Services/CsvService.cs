@@ -41,7 +41,7 @@ public class CsvServiceImp : CsvService
     private string GenerateFileName()
     {
         var fileName = $@"Bet_Builder_Daily_Report_{param.WinlostDate:yyyyMMdd}.csv";
-        var path = $@"{AppConfigService.Config.Path}/{param.WinlostDate:yyyy}/{param.WinlostDate:MM}";
+        var path = $@"{AppConfigService.Config.Path}/{param.WinlostDate:yyyyMMdd}";
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);

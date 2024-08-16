@@ -1,7 +1,7 @@
 ﻿namespace Fanex.BetBuilder.Business.Models;
 
-using System;
 using CsvHelper.Configuration.Attributes;
+using System;
 
 public class DailyDataModel
 {
@@ -27,6 +27,9 @@ public class DailyDataModel
 
     [Name("No. of legs per bet")]
     public int? NoOfLegsPerBet { get; set; }
+
+    [Name("Status")]
+    public string LiveStatus { get; set; }
 
     [Name("Bet Status (Settled/Open)")]
     public string BetStatus { get; set; }

@@ -79,7 +79,7 @@ public class ExcelServiceImp : ExcelService
         var toDate = dateTimeService.ToDate();
         var filename = $"Bet_Builder_Monthly_Cross_Check_Report_{fromDate:yyyyMMdd}_{toDate:yyyyMMdd}.xlsx";
 
-        var path = $@"{AppConfigService.Config.Path}/{fromDate:yyyy}";
+        var path = $@"{AppConfigService.Config.Path}/{fromDate:yyyyMMdd}";
         if (!Directory.Exists(path))
         {
             Directory.CreateDirectory(path);
