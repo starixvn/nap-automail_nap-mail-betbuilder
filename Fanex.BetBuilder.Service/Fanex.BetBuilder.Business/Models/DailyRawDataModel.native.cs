@@ -22,6 +22,8 @@ public class DailyRawDataModel
 
     public int? NoOfLegsPerBet { get; set; }
 
+    public string LiveStatus { get; set; }
+
     public string BetStatus { get; set; }
 
     public string DeviceGroup { get; set; }

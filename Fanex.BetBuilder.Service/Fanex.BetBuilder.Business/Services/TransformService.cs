@@ -1,8 +1,8 @@
 ﻿namespace Fanex.BetBuilder.Business.Services;
 
+using Models;
 using System.Collections.Generic;
 using System.Linq;
-using Models;
 
 public interface TransformService
 {
@@ -75,6 +75,7 @@ public class TransformServiceImp : TransformService
             MarketId = r.MarketId,
             DateTimePlaced = r.DateTimePlaced,
             NoOfLegsPerBet = r.NoOfLegsPerBet,
+            LiveStatus = r.LiveStatus,
             BetStatus = r.BetStatus,
             DeviceGroup = r.DeviceGroup,
             BetPrice = r.BetPrice,
@@ -103,6 +104,7 @@ public class TransformServiceImp : TransformService
             DateTimePlaced = r.DateTimePlaced,
             WinLostDate = r.WinLostDate,
             NoOfLegsPerBet = r.NoOfLegsPerBet,
+            LiveStatus = r.LiveStatus,
             BetStatus = r.BetStatus,
             DeviceGroup = r.DeviceGroup,
             BetPrice = r.BetPrice,
