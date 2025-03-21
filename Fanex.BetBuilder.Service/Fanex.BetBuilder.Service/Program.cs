@@ -1,26 +1,28 @@
 using Fanex.BetBuilder.Service;
+using Fanex.Data.SqlServer;
+using Fanex.Logging.Sentry.RavenClient;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
+var services = builder.Services;
+var configuration = builder.Configuration;
 
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-builder.Services.LoadConfiguration();
-builder.Services.RegisterSentry(builder.Configuration);
-builder.Services.RegisterFanexData(builder.Configuration);
-builder.Services.RegisterRemotingRef(builder.Configuration);
-builder.Services.InternalServiceRegister();
+services.AddControllers();
+
+services.AddEndpointsApiExplorer();
+services.AddSwaggerGen();
+services.AddConfig();
+services.AddFanexSql(configuration);
+services.AddFanexLogSentry(configuration);
+services.AddInternalService();
+services.AddRemotingRef(configuration);
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+app.UseSwagger();
+app.UseSwaggerUI();
 
 app.MapControllers();
-app.Run();
+
+await app.RunAsync();

@@ -2,65 +2,28 @@
 
 using Business.Services;
 using Fanex.BetBuilder.Business.Models;
-using Fanex.Data;
 using Fanex.Data.Repository;
-using Fanex.Data.SqlServer;
-using Fanex.Logging;
-using Fanex.Logging.Sentry.RavenClient;
 using Fanex.MailDelivery.Client;
 using Fanex.RemotingRef;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using OfficeOpenXml;
-using SharpRaven;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection Services { get; set; }
 
-    public static void LoadConfiguration(this IServiceCollection services)
+    public static void AddConfig(this IServiceCollection services)
     {
         Directory.SetCurrentDirectory(AppDomain.CurrentDomain.BaseDirectory);
         var text = File.ReadAllText("appsettings.json");
         AppConfigService.Config = JsonConvert.DeserializeObject<ConfigSettingModel>(text);
     }
 
-    public static void RegisterSentry(this IServiceCollection services, IConfiguration configuration)
-    {
-        LogManager
-            .SetDefaultLogCategory(configuration.GetSection("LogCategory").Value)
-            .Use(new List<ILogEngine>
-            {
-                new SentryLogging(new SentryEngineOptions
-                {
-                    Dsn = new Dsn(configuration.GetSection("SentryEngineOptions:Dsn").Value)
-                })
-            });
-    }
-
-    public static void RegisterFanexData(this IServiceCollection services, IConfiguration configuration)
-    {
-        var connections = configuration.GetSection("ConnectionStrings")
-           .GetChildren()
-           .ToDictionary(
-               x => x.Key,
-               y => new ConnectionConfiguration(y.Key, y.Value)
-           );
-
-        DbSettingProviderManager
-            .StartNewSession()
-            .Use(connections)
-            .WithSqlServer()
-            .UseDefaultDbSettingProvider(configuration.GetSection("StoredProcedurePath").Value)
-            .Run();
-    }
-
-    public static void RegisterRemotingRef(this IServiceCollection services, IConfiguration configuration)
+    public static void AddRemotingRef(this IServiceCollection services, IConfiguration configuration)
     {
         var url = configuration.GetSection("Fanex.RemotingRef.Service.Url").Value;
         RefDataTypeContainer
@@ -69,7 +32,7 @@ public static class ServiceCollectionExtensions
            .SupportOnlyDefaultLanguage();
     }
 
-    public static void InternalServiceRegister(this IServiceCollection services)
+    public static void AddInternalService(this IServiceCollection services)
     {
         ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
 
@@ -90,6 +53,15 @@ public static class ServiceCollectionExtensions
         services.AddSingleton<MainMonthlyService, MainMonthlyServiceImp>();
 
         Services = services;
-        MailClientHandler.Start();
+
+        try
+        {
+            MailClientHandler.Start();
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+            throw;
+        }
     }
 }
